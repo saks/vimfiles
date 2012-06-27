@@ -279,6 +279,9 @@ inoremap <silent> <F3> <ESC>:YRShow<cr>
 "  Plugins
 "  ---------------------------------------------------------------------------
 
+" GPicker settings
+let g:gpicker_edit_cmd = "tabedit"
+source ~/.vim/bundle/gpicker.vim/plugin/gpicker.vim
 
 " Minibuffer Explorer Settings
 let g:miniBufExplMapWindowNavVim = 1

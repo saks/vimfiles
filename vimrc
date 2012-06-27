@@ -126,6 +126,9 @@ endif
 
 " saksmlz specific:
 
+" open tag definition (ctags) in new tab instead of new buffer:
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
 " CTRL+S saves the buffer
 nmap <C-s> :w<CR>
 
@@ -151,19 +154,30 @@ vmap <M-l> >gv
 
 
 " Switch between buffers
-map <M-1> :b1<CR>
-map <M-2> :b2<CR>
-map <M-3> :b3<CR>
-map <M-4> :b4<CR>
-map <M-5> :b5<CR>
-map <M-6> :b6<CR>
-map <M-7> :b7<CR>
-map <M-8> :b8<CR>
-map <M-9> :b9<CR>
+" map <M-1> :b1<CR>
+" map <M-2> :b2<CR>
+" map <M-3> :b3<CR>
+" map <M-4> :b4<CR>
+" map <M-5> :b5<CR>
+" map <M-6> :b6<CR>
+" map <M-7> :b7<CR>
+" map <M-8> :b8<CR>
+" map <M-9> :b9<CR>
+map <M-1> 1gt
+map <M-2> 2gt
+map <M-3> 3gt
+map <M-4> 4gt
+map <M-5> 5gt
+map <M-6> 6gt
+map <M-7> 7gt
+map <M-8> 8gt
+map <M-9> 9gt
 
 " Next/Previous tab
-map <M-.> :bn<CR>
-map <M-,> :bp<CR>
+" map <M-.> :bn<CR>
+" map <M-,> :bp<CR>
+map <M-.> :tabnext<CR>
+map <M-,> :tabprevious<CR>
 
 
 " Text movimg with plugin unimpaired.vim

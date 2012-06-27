@@ -47,7 +47,7 @@ set novisualbell  " No blinking .
 set noerrorbells  " No noise.
 set laststatus=2  " Always show status line.
 
-set cursorline
+set nocursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start

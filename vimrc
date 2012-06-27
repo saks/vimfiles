@@ -97,6 +97,7 @@ if has("autocmd")
 
 
   autocmd BufNewFile,BufRead *.scss setfiletype css
+  autocmd BufNewFile,BufRead *.coffee setfiletype coffee
 
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml

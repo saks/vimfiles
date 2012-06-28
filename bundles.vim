@@ -45,6 +45,7 @@ Bundle "git://github.com/krisleech/snipmate-snippets.git"
 Bundle "git://github.com/vim-scripts/Specky.git"
 Bundle "git://github.com/tpope/vim-unimpaired.git"
 Bundle "git://github.com/tomtom/tcomment_vim.git"
+Bundle "git://github.com/saks/gpicker.vim.git"
 
 filetype plugin indent on     " and turn it back on!
 

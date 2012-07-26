@@ -21,7 +21,7 @@ set noswapfile
 syntax enable
 
 "russian langmap setup
-set langmap=йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,рh,оj,лk,дl,э',яz,чx,сc,мv,иb,тn,ьm,б\\,ю.,ё`,ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х{,Ъ},ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Э\",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\<,Ю\>,Ё\~
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 " remember folding
 au BufWinLeave ?* mkview
@@ -54,7 +54,6 @@ set nocursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
-set laststatus=2
 set number
 set undofile
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
@@ -73,7 +72,7 @@ set softtabstop=2
 set expandtab
 
 set wrap
-set textwidth=79
+set textwidth=99
 set formatoptions=n
 set colorcolumn=100
 
@@ -130,7 +129,7 @@ endif
 " saksmlz specific:
 
 " open tag definition (ctags) in new tab instead of new buffer:
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+nmap <C-\> <C-w><C-]><C-w>T
 
 " CTRL+S saves the buffer
 nmap <C-s> :w<CR>

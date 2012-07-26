@@ -32,8 +32,9 @@ call vundle#rc()
 " Bundle "git://github.com/panozzaj/vim-autocorrect.git"
 " Bundle "git://github.com/vim-scripts/L9.git"
 " Bundle "git://github.com/jpalardy/vim-slime.git"
+" Bundle "git://repo.or.cz/vcscommand"
 Bundle 'gmarik/vundle'
-Bundle "git://repo.or.cz/vcscommand"
+Bundle "git://github.com/tpope/vim-fugitive.git"
 Bundle "git://github.com/kchmck/vim-coffee-script.git"
 Bundle "git://github.com/tpope/vim-rails.git"
 Bundle "git://github.com/tpope/vim-surround.git"

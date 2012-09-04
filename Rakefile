@@ -1,9 +1,4 @@
-task :install do
-  root = File.expand_path(File.dirname(__FILE__))
-
-  puts 'Installing Bundles'
-  system "vim -c BundleInstall! -c q -c q -u bundles.vim"
-
+def install_command_t
   puts 'Compile command-t extensions'
   cmds = [
     "cd #{File.join(root, 'bundle', 'command-t', 'ruby', 'command-t')}",
@@ -12,7 +7,9 @@ task :install do
   ]
 
   system cmds.join(' && ')
+end
 
+def install_snippets
   puts 'Install additional snippets'
 
   cmds = [
@@ -21,6 +18,17 @@ task :install do
   ]
 
   system cmds.join(' && ')
+end
+
+task :install do
+  root = File.expand_path(File.dirname(__FILE__))
+
+  puts 'Installing Bundles'
+  system "vim -c BundleInstall! -c q -c q -u bundles.vim"
+
+  # install_command_t
+  # install_snippets
+
 
   puts '*' * 79
   puts
@@ -33,7 +41,7 @@ end
 
 desc 'Update to latest and greatest'
 task :update do
-  system('git pull origin master') 
+  system('git pull origin master')
   puts 'Updating Bundles'
   system "vim -c BundleInstall! -c BundleClean! -c q -c q"
 

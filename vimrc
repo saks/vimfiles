@@ -267,7 +267,7 @@ nmap <F8> :TagbarToggle<CR>
 "  ---------------------------------------------------------------------------
 
 " GPicker settings
-let g:gpicker_edit_cmd = "tabedit"
+let g:gpicker_open_file_in_tabs = 1
 nnoremap <M-o> :GPickFile<CR>
 vnoremap <M-o> :GPickFile<CR>
 

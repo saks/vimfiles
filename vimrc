@@ -200,8 +200,6 @@ vmap <M-Down> ]egv
 map <C-space> :nohl <cr>
 
 " Searching / moving
-" nnoremap / /\\v
-" vnoremap / /\\v
 set ignorecase
 " ignore folllowing files
 set wildignore+=*.bak,*~,*.tmp,*.backup,*swp,*.o,*.obj,.git,*.rbc,*.png,*.xpi
@@ -211,10 +209,6 @@ set incsearch
 set showmatch
 set hlsearch
 set mat=5  " Bracket blinking.
-
-" Center screen when scrolling search results
-" nmap n nzz
-" nmap N Nzz
 
 imap <C-h> <ESC>^
 imap <C-l> <ESC>$
@@ -234,9 +228,6 @@ imap <C-l> <ESC>$
 nnoremap j gj
 nnoremap k gk
 
-" Map ESC
-imap jj <ESC>
-
 " ACK
 set grepprg=ack
 
@@ -249,29 +240,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" Move lines up and down
-" map <C-J> :m +1 <CR>
-" map <C-K> :m -2 <CR>
-
-" close buffer
-nmap <leader>d :bd<CR>
-" close all buffers
-nmap <leader>D :bufdo bd<CR>
-
-" Switch between last two buffers
-nnoremap <leader><leader> <c-^>
-
-" Edit/View files relative to current directory
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
-map <leader>v :view %%
-
-" Saving and exit
-nmap <leader>q :wqa!<CR>
-nmap <leader>w :w!<CR>
-nmap <leader><Esc> :q!<CR>
-
 
 " EXTERNAL COPY / PASTE
 " Press F2 before and after pasting from an external Window, not required for
@@ -339,14 +307,6 @@ vnoremap <M-/> :TComment<CR>
 " let g:SuperTabDefaultCompletionType = "context"
 " let g:SuperTabDefaultCompletionType = "user"
 " let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
-"  ---------------------------------------------------------------------------
-"  Ruby/Rails
-"  ---------------------------------------------------------------------------
-
-" Skip to Models and Views
-map <Leader>m :Rmodel
-map <Leader>v :Rview
 
 "  ---------------------------------------------------------------------------
 "  GUI

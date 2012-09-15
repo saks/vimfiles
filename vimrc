@@ -23,9 +23,6 @@ syntax enable
 "russian langmap setup
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-" remember folding
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
 
 
 "  ---------------------------------------------------------------------------
@@ -82,34 +79,37 @@ if has("autocmd")
   " Enable file type detection
   filetype on
 
+  " remember folding
+  autocmd BufWinLeave * silent! mkview
+  autocmd BufWinEnter * silent! loadview
+
   " Syntax of these languages is fussy over tabs Vs spaces
-  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+  au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
   " Customisations based on house-style (arbitrary)
-  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  au FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  au FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  au FileType python setlocal ts=4 sts=4 sw=4 expandtab
+
+  au FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
+  au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
   " Treat .thor files as Ruby
-  autocmd BufNewFile,BufRead *.thor setfiletype ruby
+  au BufNewFile,BufRead *.thor setfiletype ruby
 
   " Thorfile, Rakefile and Gemfile are Ruby
   au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} set ft=ruby
 
-
-  autocmd BufNewFile,BufRead *.scss setfiletype css
-  autocmd BufNewFile,BufRead *.coffee setfiletype coffee
+  " scss and coffee files
+  au BufNewFile,BufRead *.scss setfiletype css
+  au BufNewFile,BufRead *.coffee setfiletype coffee
 
   " Treat .rss files as XML
-  autocmd BufNewFile,BufRead *.rss setfiletype xml
-
-  autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  au BufNewFile,BufRead *.rss setfiletype xml
 
   " set filetype for json file to javascript
-  autocmd BufNewFile,BufRead *.json setfiletype javascript
-  autocmd BufNewFile,BufRead *_spec.rb setfiletype ruby
+  au BufNewFile,BufRead *.json setfiletype javascript
 endif
 
 "  ---------------------------------------------------------------------------

@@ -259,6 +259,9 @@ map <F2> :ConqueTerm zsh<CR>
 nnoremap <silent> <F3> :YRShow<cr>
 inoremap <silent> <F3> <ESC>:YRShow<cr>
 
+" F8 - Toggle tag bar
+nmap <F8> :TagbarToggle<CR>
+
 "  ---------------------------------------------------------------------------
 "  Plugins
 "  ---------------------------------------------------------------------------

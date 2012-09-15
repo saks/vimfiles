@@ -25,7 +25,6 @@ call vundle#rc()
 " Bundle "git://git.wincent.com/command-t.git"
 " Bundle "git://github.com/kana/vim-textobj-user.git"
 " Bundle "git://github.com/nelstrom/vim-textobj-rubyblock.git"
-" Bundle "git://github.com/juvenn/mustache.vim.git"
 " Bundle "git://github.com/vim-scripts/nginx.vim.git"
 " Bundle "git://github.com/rson/vim-conque.git"
 " Bundle "git://github.com/fholgado/minibufexpl.vim.git"
@@ -47,6 +46,8 @@ Bundle "git://github.com/vim-scripts/Specky.git"
 Bundle "git://github.com/tpope/vim-unimpaired.git"
 Bundle "git://github.com/tomtom/tcomment_vim.git"
 Bundle "git://github.com/saks/gpicker.vim.git"
+Bundle "git://github.com/juvenn/mustache.vim.git"
+Bundle "git://github.com/majutsushi/tagbar"
 
 filetype plugin indent on     " and turn it back on!
 

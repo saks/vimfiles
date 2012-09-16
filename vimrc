@@ -210,9 +210,6 @@ set showmatch
 set hlsearch
 set mat=5  " Bracket blinking.
 
-imap <C-h> <ESC>^
-imap <C-l> <ESC>$
-
 " Turn off arrow keys (this might not be a good idea for beginners, but it is
 " the best way to ween yourself of arrow keys on to hjkl)
 " http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/

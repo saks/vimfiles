@@ -401,6 +401,7 @@ function! s:SmartOpenTag()
     let l:tab_buffers = tabpagebuflist(l:tab_number)
     if bufname(l:tab_buffers[0]) == l:first_item_file_name
       execute 'tabn ' . l:tab_number
+      execute 'tag ' . current_word
       return
     endif
   endfor

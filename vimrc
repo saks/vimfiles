@@ -129,7 +129,7 @@ endif
 " saksmlz specific:
 
 " open tag definition (ctags) in new tab instead of new buffer:
-nmap <C-\> <C-w><C-]><C-w>T
+nmap <C-\> :SmartOpenTag<CR>
 
 " CTRL+S saves the buffer
 nmap <C-s> :w<CR>
@@ -372,3 +372,42 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+function! s:SmartOpenTag()
+  let current_word = expand("<cword>")
+  let l:tags = taglist(current_word)
+
+  if empty(l:tags)
+    return
+  endif
+
+  let l:current_buffer_filename = expand('%')
+  let l:first_item_file_name = l:tags[0].filename
+
+  " iterate througs the files with this tag and compare with current tab file
+  for l:tag_info in l:tags
+    if l:tag_info.filename == l:current_buffer_filename
+      " go to the tag in the current buffer
+      execute 'tag ' . current_word
+      return
+    endif
+  endfor
+
+
+  " try to find it in opened tabs
+  for l:tab_number in range(tabpagenr('$'))
+    let l:tab_number += 1
+
+    let l:tab_buffers = tabpagebuflist(l:tab_number)
+    if bufname(l:tab_buffers[0]) == l:first_item_file_name
+      execute 'tabn ' . l:tab_number
+      return
+    endif
+  endfor
+
+
+  " open new tab for this tag
+  execute 'tab new'
+  execute 'tag ' . current_word
+endfunction
+command SmartOpenTag :call <SID>SmartOpenTag()

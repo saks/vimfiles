@@ -10,7 +10,7 @@ silent! runtime bundles.vim
 "  General
 "  ---------------------------------------------------------------------------
 
-" filetype plugin indent on
+filetype plugin indent on
 let mapleader = ","
 let g:mapleader = ","
 " set modelines=0
@@ -48,6 +48,7 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set number
+set numberwidth=5
 set undofile
 set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 
@@ -158,10 +159,13 @@ if has("autocmd")
   au BufWritePre * :call <SID>StripTrailingWhitespaces()
 
   " remember folding
-  " au BufWinLeave * silent! mkview
   " BufWinLeave failed to update view sometimes
-  au BufLeave * silent! mkview
-  au BufUnload * silent! mkview
+  au BufWinLeave * silent! mkview
+  au BufLeave * mkview
+
+  " au BufLeave * silent! mkview
+  " au BufUnload * silent! mkview
+  " au BufUnload * mkview
 
   au BufWinEnter * silent! loadview
 
@@ -369,3 +373,11 @@ map <Leader>rt :!ctags --extra=+f --exclude=.git --exclude=.hg --exclude=tmp --e
 "
 " fix rspec should syntax
 " %s/^\(\s\+\)\(\S.\+\)\.should/\1expect(\2).to/
+"
+" fix factory girl syntax
+" %s/Factory\(\.create\)\?/create/
+"
+" fix hash syntax
+" %s/\([^:]\):\([^=:]\+\)\s\?=>\s\?/\1\2: / | %s/\s:\s/: /
+"
+" %s/expect(response).to have_tag("\([^"]\+\)"\(, "\([^"]\+\)")\|)\)/assert_select '\1', text: '\3' | %s/, text: ''$//

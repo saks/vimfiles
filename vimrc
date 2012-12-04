@@ -321,6 +321,10 @@ let g:gpicker_open_file_in_tabs = 1
 nnoremap <M-o> :GPickFile<CR>
 vnoremap <M-o> :GPickFile<CR>
 
+let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
+
+" If you have troubles with special symbls, check out this gist: https://gist.github.com/1634235
+let g:Powerline_symbols = 'fancy'
 
 " let g:cssColorVimDoNotMessMyUpdatetime = 1
 
@@ -339,10 +343,9 @@ if has("gui_running")
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA
   set mouse=v
-  set guifont=Monaco\ 10
   set mousehide  " Hide mouse after chars typed
   set mouse=a  " Mouse in all modes
-  set guifont=Monaco\ 10
+  set guifont=Monaco\ for\ Powerline\ 10
 endif
 
 colorscheme railscasts
@@ -363,8 +366,6 @@ map <Leader>rt :!ctags --extra=+f --exclude=.git --exclude=.hg --exclude=tmp --e
 "  ---------------------------------------------------------------------------
 "  Misc
 "  ---------------------------------------------------------------------------
-let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
-
 " fix email API
 " %s/\.deliver_\([^(]\+\)(\([^)]\+\))/::\1(\2).deliver/
 "

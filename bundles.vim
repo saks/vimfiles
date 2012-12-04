@@ -48,6 +48,8 @@ Bundle "git://github.com/tpope/vim-unimpaired.git"
 Bundle "git://github.com/tomtom/tcomment_vim.git"
 Bundle "git://github.com/saks/gpicker.vim.git"
 Bundle "git://github.com/tpope/vim-fugitive.git"
+Bundle "git://github.com/andersjanmyr/nginx-vim-syntax.git"
+Bundle "git://github.com/tomtom/quickfixsigns_vim.git"
 
 filetype plugin indent on     " and turn it back on!
 

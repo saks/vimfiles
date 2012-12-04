@@ -363,7 +363,7 @@ map <Leader>rt :!ctags --extra=+f --exclude=.git --exclude=.hg --exclude=tmp --e
 "  ---------------------------------------------------------------------------
 "  Misc
 "  ---------------------------------------------------------------------------
-
+let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
 " fix email API
 " %s/\.deliver_\([^(]\+\)(\([^)]\+\))/::\1(\2).deliver/
@@ -380,4 +380,4 @@ map <Leader>rt :!ctags --extra=+f --exclude=.git --exclude=.hg --exclude=tmp --e
 " fix hash syntax
 " %s/\([^:]\):\([^=:]\+\)\s\?=>\s\?/\1\2: / | %s/\s:\s/: /
 "
-" %s/expect(response).to have_tag("\([^"]\+\)"\(, "\([^"]\+\)")\|)\)/assert_select '\1', text: '\3' | %s/, text: ''$//
+" %s/expect(response).to have_tag("\([^"]\+\)"\(, "\([^"]\+\)")\|)\)/assert_select '\1', text: '\3'/ | %s/, text: ''$//

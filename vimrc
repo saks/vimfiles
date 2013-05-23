@@ -81,7 +81,7 @@ set colorcolumn=100
 set ignorecase
 
 " ignore folllowing files
-set wildignore+=*.bak,*~,*.tmp,*.backup,*swp,*.o,*.obj,.git,*.rbc,*.png,*.xpi
+set wildignore+=*.bak,*~,*.tmp,*.backup,*swp,*.o,*.obj,.git,*.rbc,*.png,*.xpi,*.swf,*.woff,*.eot,*.svg,*.ttf,*.otf
 
 set smartcase
 set gdefault
@@ -161,7 +161,7 @@ if has("autocmd")
   " remember folding
   " BufWinLeave failed to update view sometimes
   au BufWinLeave * silent! mkview
-  au BufLeave * mkview
+  au BufLeave * silent! mkview
 
   " au BufLeave * silent! mkview
   " au BufUnload * silent! mkview
@@ -199,8 +199,8 @@ if has("autocmd")
   " Treat .thor files as Ruby
   " au BufNewFile,BufRead *.thor setfiletype ruby
 
-  " Thorfile, Rakefile and Gemfile are Ruby
-  " au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} set ft=ruby
+  " Thorfile is Ruby
+  au BufRead,BufNewFile {Thorfile} set ft=ruby
 endif
 
 "  ---------------------------------------------------------------------------
@@ -324,7 +324,12 @@ vnoremap <M-o> :GPickFile<CR>
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
 " If you have troubles with special symbls, check out this gist: https://gist.github.com/1634235
-let g:Powerline_symbols = 'fancy'
+" to make it working:
+" sudo apt-get install python-pip
+" sudo pip install https://github.com/Lokaltog/powerline/tarball/develop
+" /usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+" python from powerline.ext.vim import source_plugin; source_plugin()
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
 
 " let g:cssColorVimDoNotMessMyUpdatetime = 1
 
@@ -345,7 +350,7 @@ if has("gui_running")
   set mouse=v
   set mousehide  " Hide mouse after chars typed
   set mouse=a  " Mouse in all modes
-  set guifont=Monaco\ for\ Powerline\ 10
+  set guifont=Monaco\ For\ Powerline\ 10
 endif
 
 colorscheme railscasts

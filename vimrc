@@ -43,7 +43,7 @@ set novisualbell  " No blinking .
 set noerrorbells  " No noise.
 set laststatus=2  " Always show status line.
 
-set cursorline
+set nocursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -173,6 +173,9 @@ if has("autocmd")
   au BufNewFile,BufRead *.scss setfiletype css
   au BufNewFile,BufRead *.coffee setfiletype coffee
 
+  " Thorfile is Ruby
+  au BufRead,BufNewFile {Thorfile} set ft=ruby
+
   " Customisations based on house-style (arbitrary)
   au FileType html setlocal ts=2 sts=2 sw=2 expandtab
   au FileType css setlocal ts=2 sts=2 sw=2 expandtab
@@ -181,7 +184,7 @@ if has("autocmd")
   au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 
-  au FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  " au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
   " Syntax of these languages is fussy over tabs Vs spaces
   " au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
@@ -199,8 +202,6 @@ if has("autocmd")
   " Treat .thor files as Ruby
   " au BufNewFile,BufRead *.thor setfiletype ruby
 
-  " Thorfile is Ruby
-  au BufRead,BufNewFile {Thorfile} set ft=ruby
 endif
 
 "  ---------------------------------------------------------------------------
@@ -216,49 +217,55 @@ endif
 "
 
 " saksmlz specific:
+" Use jk intead of <esc>
+inoremap jk <esc>
+vnoremap jk <esc>
+" Stop using <esc>
+inoremap <esc> <nop>
+vnoremap <esc> <nop>
 
 " open tag definition (ctags) in new tab instead of new buffer:
-nmap <C-\> :SmartOpenTag<CR>
+nnoremap <C-\> :SmartOpenTag<CR>
 
 " CTRL+S saves the buffer
-nmap <C-s> :w<CR>
+nnoremap <C-s> :w<CR>
 
 
 " Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
+nnoremap <leader>l :set list!<CR>
 
 " Shift+Insert will paste from system buffer (Control+C)
-cmap <S-Insert>		<C-R>+
+cnoremap <S-Insert>		<C-R>+
 exe 'inoremap <script> <S-Insert>' paste#paste_cmd['i']
 
 
 " EXTERNAL COPY / PASTE
-map <C-v> "+gP<CR>
-vmap <C-c> "+y
+noremap <C-v> "+gP<CR>
+vnoremap <C-c> "+y
 
 
 " Text indentation with Alt+Letf/Right and so on
-nmap <M-Left> <<
-nmap <M-Right> >>
+nnoremap <M-Left> <<
+nnoremap <M-Right> >>
 vmap <M-Left> <gv
 vmap <M-Right> >gv
-" nmap <M-h> <<
-" nmap <M-l> >>
-" vmap <M-h> <gv
-" vmap <M-l> >gv
+nnoremap <M-h> <<
+nnoremap <M-l> >>
+vmap <M-h> <gv
+vmap <M-l> >gv
 
 " Text movimg with plugin unimpaired.vim
 " Bubble single lines
-" nmap <M-k> [e
-" nmap <M-j> ]e
+nmap <M-k> [e
+nmap <M-j> ]e
 nmap <M-Up> [e
 nmap <M-Down> ]e
 
 " Bubble multiple lines
 " vmap <M-k> [egv
 " vmap <M-j> ]egv
-vmap <M-Up> [egv
-vmap <M-Down> ]egv
+vnoremap <M-Up> [egv
+vnoremap <M-Down> ]egv
 
 
 " Switch between buffers
@@ -273,26 +280,26 @@ vmap <M-Down> ]egv
 " map <M-9> :b9<CR>
 
 " Switch between tabs
-map <M-1> 1gt
-map <M-2> 2gt
-map <M-3> 3gt
-map <M-4> 4gt
-map <M-5> 5gt
-map <M-6> 6gt
-map <M-7> 7gt
-map <M-8> 8gt
-map <M-9> 9gt
+noremap <M-1> 1gt
+noremap <M-2> 2gt
+noremap <M-3> 3gt
+noremap <M-4> 4gt
+noremap <M-5> 5gt
+noremap <M-6> 6gt
+noremap <M-7> 7gt
+noremap <M-8> 8gt
+noremap <M-9> 9gt
 
 " Next/Previous tab
 " map <M-.> :bn<CR>
 " map <M-,> :bp<CR>
-map <M-.> :tabnext<CR>
-map <M-,> :tabprevious<CR>
+noremap <M-.> :tabnext<CR>
+noremap <M-,> :tabprevious<CR>
 
 
 
 " Clear highlighting
-map <C-space> :nohl <cr>
+noremap <C-space> :nohl <cr>
 
 " Turn off arrow keys (this might not be a good idea for beginners, but it is
 " the best way to ween yourself of arrow keys on to hjkl)
@@ -305,12 +312,6 @@ map <C-space> :nohl <cr>
 " "inoremap <down> <nop>
 " "inoremap <left> <nop>
 " "inoremap <right> <nop>
-
-"  ---------------------------------------------------------------------------
-"  Function Keys
-"  ---------------------------------------------------------------------------
-" F8 - Toggle tag bar
-nmap <F8> :TagbarToggle<CR>
 
 "  ---------------------------------------------------------------------------
 "  Plugins
@@ -366,7 +367,7 @@ highlight SpecialKey guifg=#4a4a59
 " Ctags path (brew install ctags)
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
-map <Leader>rt :!ctags --extra=+f --exclude=.git --exclude=.hg --exclude=tmp --exclude=vendor/assets --exclude=public --exclude=app/assets --exclude=log -R *<CR><CR>
+noremap <Leader>rt :!ctags --extra=+f --exclude=.git --exclude=.hg --exclude=tmp --exclude=vendor/assets --exclude=public --exclude=app/assets --exclude=log -R *<CR><CR>
 
 "  ---------------------------------------------------------------------------
 "  Misc

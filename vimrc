@@ -262,10 +262,10 @@ nmap <M-Up> [e
 nmap <M-Down> ]e
 
 " Bubble multiple lines
-" vmap <M-k> [egv
-" vmap <M-j> ]egv
-vnoremap <M-Up> [egv
-vnoremap <M-Down> ]egv
+vmap <M-k> [egv
+vmap <M-j> ]egv
+vmap <M-Up> [egv
+vmap <M-Down> ]egv
 
 
 " Switch between buffers

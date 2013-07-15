@@ -153,54 +153,57 @@ command! SmartOpenTag :call <SID>SmartOpenTag()
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-  " Enable file type detection
-  filetype on
+  augroup saksmlz_autocommands
+    autocmd!
 
-  au BufWritePre * :call <SID>StripTrailingWhitespaces()
+    " Enable file type detection
+    filetype on
 
-  " remember folding
-  " BufWinLeave failed to update view sometimes
-  au BufWinLeave * silent! mkview
-  au BufLeave * silent! mkview
+    au BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-  " au BufLeave * silent! mkview
-  " au BufUnload * silent! mkview
-  " au BufUnload * mkview
+    " remember folding
+    " BufWinLeave failed to update view sometimes
+    au BufWinLeave,BufLeave * silent! mkview
 
-  au BufWinEnter * silent! loadview
+    " au BufLeave * silent! mkview
+    " au BufUnload * silent! mkview
+    " au BufUnload * mkview
 
-  " scss and coffee files
-  au BufNewFile,BufRead *.scss setfiletype css
-  au BufNewFile,BufRead *.coffee setfiletype coffee
+    au BufWinEnter * silent! loadview
 
-  " Thorfile is Ruby
-  au BufRead,BufNewFile {Thorfile} set ft=ruby
+    " scss and coffee files
+    au BufNewFile,BufRead *.scss setfiletype css
+    au BufNewFile,BufRead *.coffee setfiletype coffee
 
-  " Customisations based on house-style (arbitrary)
-  au FileType html setlocal ts=2 sts=2 sw=2 expandtab
-  au FileType css setlocal ts=2 sts=2 sw=2 expandtab
+    " Thorfile is Ruby
+    au BufRead,BufNewFile {Thorfile} set ft=ruby
 
-  au FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-  au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+    " Customisations based on house-style (arbitrary)
+    au FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType css setlocal ts=2 sts=2 sw=2 expandtab
+
+    au FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 
-  " au FileType python setlocal ts=4 sts=4 sw=4 expandtab
+    " au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
-  " Syntax of these languages is fussy over tabs Vs spaces
-  " au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  " au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    " Syntax of these languages is fussy over tabs Vs spaces
+    " au FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+    " au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
-  " When vimrc is edited, reload it
-  " au! bufwritepost vimrc source ~/.vimrc
+    " When vimrc is edited, reload it
+    " au! bufwritepost vimrc source ~/.vimrc
 
-  " Treat .rss files as XML
-  " au BufNewFile,BufRead *.rss setfiletype xml
+    " Treat .rss files as XML
+    " au BufNewFile,BufRead *.rss setfiletype xml
 
-  " set filetype for json file to javascript
-  " au BufNewFile,BufRead *.json setfiletype javascript
+    " set filetype for json file to javascript
+    " au BufNewFile,BufRead *.json setfiletype javascript
 
-  " Treat .thor files as Ruby
-  " au BufNewFile,BufRead *.thor setfiletype ruby
+    " Treat .thor files as Ruby
+    " au BufNewFile,BufRead *.thor setfiletype ruby
+  augroup END
 
 endif
 

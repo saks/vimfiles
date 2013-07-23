@@ -107,10 +107,12 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 function! s:SmartOpenTag()
-  let current_word = expand("<cword>")
+  let current_word = RubyCursorIdentifier()
   let l:tags = taglist(current_word)
+  let l:error_message = 'SmartOpenTag: tag not found: ' . current_word
 
   if empty(l:tags)
+    echom l:error_message
     return
   endif
 
@@ -119,13 +121,12 @@ function! s:SmartOpenTag()
 
   " iterate througs the files with this tag and compare with current tab file
   for l:tag_info in l:tags
-    if l:tag_info.filename == l:current_buffer_filename
+    if l:tag_info.filename == l:current_buffer_filename && l:tag_info.name == current_word
       " go to the tag in the current buffer
       execute 'tag ' . current_word
       return
     endif
   endfor
-
 
   " try to find it in opened tabs
   for l:tab_number in range(tabpagenr('$'))
@@ -142,10 +143,15 @@ function! s:SmartOpenTag()
   endfor
 
 
+
   " open new tab for this tag
   " TODO: fix the case when opening tag from file that is not in current source tree
-  execute 'tab new'
-  execute 'tag ' . current_word
+  if 0 == empty(l:tags) && get(l:tags, 0).name == current_word
+    execute 'tab new'
+    execute 'tag ' . current_word
+  else
+    echom l:error_message
+  endif
 endfunction
 command! SmartOpenTag :call <SID>SmartOpenTag()
 

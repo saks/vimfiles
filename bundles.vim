@@ -40,21 +40,23 @@ call vundle#rc()
 " Bundle "git@github.com:tpope/vim-dispatch.git"
 " Bundle "git@github.com:terryma/vim-multiple-cursors.git"
 Bundle 'gmarik/vundle'
-Bundle "kchmck/vim-coffee-script.git"
-Bundle "tpope/vim-rails.git"
-Bundle "tpope/vim-surround.git"
-Bundle "chrismetcalf/vim-yankring.git"
-Bundle "tpope/vim-endwise.git"
-Bundle "godlygeek/tabular.git"
-Bundle "gmarik/snipmate.vim.git"
-Bundle "krisleech/snipmate-snippets.git"
-Bundle "vim-scripts/Specky.git"
-Bundle "tpope/vim-unimpaired.git"
-Bundle "tomtom/tcomment_vim.git"
-Bundle "saks/gpicker.vim.git"
-Bundle "tpope/vim-fugitive.git"
-Bundle "andersjanmyr/nginx-vim-syntax.git"
-Bundle "tomtom/quickfixsigns_vim.git"
+Bundle 'kchmck/vim-coffee-script.git'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'chrismetcalf/vim-yankring.git'
+Bundle 'tpope/vim-endwise.git'
+Bundle 'godlygeek/tabular.git'
+Bundle 'gmarik/snipmate.vim.git'
+Bundle 'krisleech/snipmate-snippets.git'
+Bundle 'saks/Specky.git'
+Bundle 'tpope/vim-unimpaired.git'
+Bundle 'tomtom/tcomment_vim.git'
+Bundle 'saks/gpicker.vim.git'
+Bundle 'tpope/vim-fugitive.git'
+Bundle 'evanmiller/nginx-vim-syntax'
+Bundle 'tomtom/quickfixsigns_vim.git'
+Bundle 'bling/vim-airline'
+" Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on     " and turn it back on!
 

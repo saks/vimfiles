@@ -37,7 +37,7 @@ call vundle#rc()
 " Bundle "git://github.com/nviennot/vim-powerline.git"
 " Bundle "git://github.com/Lokaltog/powerline.git"
 " Bundle "git@github.com:slim-template/vim-slim.git"
-" Bundle "git@github.com:tpope/vim-dispatch.git"
+" Bundle 'tpope/vim-dispatch.git'
 " Bundle "git@github.com:terryma/vim-multiple-cursors.git"
 Bundle 'gmarik/vundle'
 Bundle 'kchmck/vim-coffee-script.git'
@@ -57,6 +57,9 @@ Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'tomtom/quickfixsigns_vim.git'
 Bundle 'bling/vim-airline'
 " Bundle 'Valloric/YouCompleteMe'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/unite.vim'
+
 
 filetype plugin indent on     " and turn it back on!
 

@@ -1,3 +1,4 @@
+" set re=1
 set nocompatible               " be iMproved
 
 "  ---------------------------------------------------------------------------
@@ -182,15 +183,10 @@ if has("autocmd")
     au BufNewFile,BufRead *.coffee setfiletype coffee
 
     " Thorfile is Ruby
-    au BufRead,BufNewFile {Thorfile} set ft=ruby
+    au BufRead,BufNewFile {Thorfile,Berksfile} set ft=ruby
 
     " Customisations based on house-style (arbitrary)
-    au FileType html setlocal ts=2 sts=2 sw=2 expandtab
-    au FileType css setlocal ts=2 sts=2 sw=2 expandtab
-
-    au FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-    au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-
+    au FileType html,css,ruby,javascript setlocal ts=2 sts=2 sw=2 expandtab
 
     " au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
@@ -247,10 +243,6 @@ nnoremap <leader>l :set list!<CR>
 cnoremap <S-Insert>		<C-R>+
 exe 'inoremap <script> <S-Insert>' paste#paste_cmd['i']
 
-
-" EXTERNAL COPY / PASTE
-noremap <C-v> "+gP<CR>
-vnoremap <C-c> "+y
 
 
 " Text indentation with Alt+Letf/Right and so on
@@ -337,15 +329,33 @@ let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 " to make it working:
 " sudo apt-get install python-pip
 " sudo pip install https://github.com/Lokaltog/powerline/tarball/develop
-" /usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-" python from powerline.ext.vim import source_plugin; source_plugin()
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
 
-" let g:cssColorVimDoNotMessMyUpdatetime = 1
+" Airline settings
+let g:airline_powerline_fonts=1
+let g:airline_enable_branch=1
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline_theme='dark'
 
 " Easy commenting
 nnoremap <M-/> :TComment<CR>
 vnoremap <M-/> :TComment<CR>
+
+" unite
+" Автоматический insert mode
+let g:unite_enable_start_insert = 1
+
+" Отображаем Unite в нижней части экрана
+let g:unite_split_rule = "botright"
+
+" Отключаем замену статус строки
+let g:unite_force_overwrite_statusline = 0
+
+" Размер окна Unite
+let g:unite_winheight = 10
+
+" Красивые стрелочки
+let g:unite_candidate_icon="▷"
 
 "  ---------------------------------------------------------------------------
 "  GUI
@@ -360,7 +370,12 @@ if has("gui_running")
   set mouse=v
   set mousehide  " Hide mouse after chars typed
   set mouse=a  " Mouse in all modes
+  " set guifont=Monaco 10
   set guifont=Monaco\ For\ Powerline\ 10
+
+  " EXTERNAL COPY / PASTE
+  noremap <C-v> "+gP<CR>
+  vnoremap <C-c> "+y
 endif
 
 colorscheme railscasts

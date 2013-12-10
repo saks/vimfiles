@@ -371,7 +371,7 @@ if has("gui_running")
   set mousehide  " Hide mouse after chars typed
   set mouse=a  " Mouse in all modes
   " set guifont=Monaco 10
-  set guifont=Monaco\ For\ Powerline\ 10
+  set guifont=Monaco\ For\ Powerline\ 12
 
   " EXTERNAL COPY / PASTE
   noremap <C-v> "+gP<CR>

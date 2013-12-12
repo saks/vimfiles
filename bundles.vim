@@ -57,8 +57,8 @@ Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'tomtom/quickfixsigns_vim.git'
 Bundle 'bling/vim-airline'
 " Bundle 'Valloric/YouCompleteMe'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/unite.vim'
+" Bundle 'Shougo/vimproc.vim'
+" Bundle 'Shougo/unite.vim'
 
 
 filetype plugin indent on     " and turn it back on!

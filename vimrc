@@ -57,7 +57,7 @@ set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
 "  Backups
 "  ---------------------------------------------------------------------------
 set history=1000
-set noswapfile
+set swapfile
 set backupdir=/tmp
 set undodir=~/.vim/.tmp,~/tmp,~/.tmp,/tmp
 
@@ -181,6 +181,7 @@ if has("autocmd")
     " scss and coffee files
     au BufNewFile,BufRead *.scss setfiletype css
     au BufNewFile,BufRead *.coffee setfiletype coffee
+    au BufNewFile,BufRead *.moon setfiletype moon
 
     " Thorfile is Ruby
     au BufRead,BufNewFile {Thorfile,Berksfile} set ft=ruby
@@ -357,6 +358,14 @@ let g:unite_winheight = 10
 " Красивые стрелочки
 let g:unite_candidate_icon="▷"
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 "  ---------------------------------------------------------------------------
 "  GUI
 "  ---------------------------------------------------------------------------
@@ -371,10 +380,10 @@ if has("gui_running")
   set mousehide  " Hide mouse after chars typed
   set mouse=a  " Mouse in all modes
   " set guifont=Monaco 10
-  set guifont=Monaco\ For\ Powerline\ 12
+  set guifont=Monaco\ For\ Powerline\ 11
 
   " EXTERNAL COPY / PASTE
-  noremap <C-v> "+gP<CR>
+  " noremap <C-v> "+gP<CR>
   vnoremap <C-c> "+y
 endif
 
@@ -391,7 +400,7 @@ highlight SpecialKey guifg=#4a4a59
 " Ctags path (brew install ctags)
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
-noremap <Leader>rt :!ctags --extra=+f --exclude=.git --exclude=.hg --exclude=tmp --exclude=vendor/assets --exclude=public --exclude=app/assets --exclude=log -R *<CR><CR>
+noremap <Leader>rt :!ctags --languages=ruby -R .<CR><CR>
 
 "  ---------------------------------------------------------------------------
 "  Misc

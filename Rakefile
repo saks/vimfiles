@@ -51,3 +51,9 @@ task :update do
   puts
   puts '*' * 79
 end
+
+desc 'Cleanup all the view and temp files'
+task :cleanup_temp_files do
+  system 'rm -f ~/.vim/.tmp/*'
+  system 'rm -f ~/.vim/view/*'
+end

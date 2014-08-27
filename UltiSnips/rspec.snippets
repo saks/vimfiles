@@ -1,0 +1,89 @@
+snippet rhelper "rspec: require rspec helepr"
+require 'spec_helper'
+endsnippet
+
+snippet describe "rspec: describe block"
+describe $1 do
+	$0
+end
+endsnippet
+
+snippet it "rspec: example block"
+it '$1' do
+	$0
+end
+endsnippet
+
+snippet specify "rspec: specify example block"
+specify { $0 }
+endsnippet
+
+snippet scenario "rspec: scenario block"
+scenario '$1' do
+	$0
+end
+endsnippet
+
+snippet gemail "rspec: let that generates email"
+let(:email) { generate :email }
+endsnippet
+
+snippet subject "rspec: describe subject"
+subject { $0 }
+endsnippet
+
+snippet subjectm "rspec: describe subject multiline"
+subject do
+	$0
+end
+endsnippet
+
+snippet sharedc "rspec: shared context"
+shared_context '$1' do
+	$0
+end
+endsnippet
+
+snippet sharede "rspec: shared examples"
+shared_examples '$1' do
+	$0
+end
+endsnippet
+
+snippet its "rspec: describe attribute of subject"
+its(:${1:attribute}) { should$0 }
+endsnippet
+
+snippet context "rspec: context block"
+context '$1' do
+	${0:${VISUAL:# assertions...}}
+end
+endsnippet
+
+snippet let "rspec: let statement"
+let(:$1) { $0 }
+endsnippet
+
+snippet let! "rspec: let statement"
+let!(:$1) { $0 }
+endsnippet
+
+snippet letm "rspec: multiline let statement"
+let(:$1) do
+	$0
+end
+endsnippet
+
+snippet before "rspec: before each block"
+before { $0 }
+endsnippet
+
+snippet beforem "rspec: before each multiline block"
+before do
+	$0
+end
+endsnippet
+
+snippet pry "ruby: pry breakpoint"
+require 'pry'; binding.pry
+endsnippet

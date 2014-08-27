@@ -1,0 +1,69 @@
+snippet If "<command> if <expression>"
+${1:command} if ${0:expression}
+endsnippet
+
+snippet Unless "<command> unless <expression>"
+${1:command} unless ${0:expression}
+endsnippet
+
+snippet if "if <condition> ... end"
+if ${1:condition}
+	${2:# TODO}
+end
+endsnippet
+
+snippet ife "if <condition> ... else ... end"
+if ${1:condition}
+	${2:# TODO}
+else
+	${3:# TODO}
+end
+endsnippet
+
+snippet ifee "if <condition> ... elseif <condition> ... else ... end"
+if ${1:condition}
+	${2:# TODO}
+elsif ${3:condition}
+	${4:# TODO}
+else
+	${0:# TODO}
+end
+endsnippet
+
+snippet unless "unless <condition> ... end"
+unless ${1:condition}
+	${0:# TODO}
+end
+endsnippet
+
+snippet "\b(de)?f" "def <name>..." r
+def ${1:function_name}${2:(${3:*args})}
+	${0:# TODO}
+end
+endsnippet
+
+snippet defi "def initialize ..."
+def initialize${1:(${2:*args})}
+	${0:# TODO}
+end
+endsnippet
+
+snippet defr "def <name> ... rescue ..."
+def ${1:function_name}${2:(${3:*args})}
+	${4:# TODO}
+rescue
+	${0:# TODO}
+end
+endsnippet
+
+snippet aliasm "alias_method :<new_name> :<old_name>"
+alias_method :${1:new_name}, :${2:old_name}
+endsnippet
+
+snippet class "class <class_name> def initialize ... end end"
+class ${1:class_name}
+	def initialize(${2:*args})
+		$0
+	end
+end
+endsnippet

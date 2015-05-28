@@ -20,7 +20,8 @@ syntax enable
 " "russian langmap setup
 " " set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-
+" Tabboo (https://github.com/gcmt/taboo.vim#basic-options)
+let g:taboo_tab_format = "[ %f %N ]%m"
 
 "  ---------------------------------------------------------------------------
 "  UI

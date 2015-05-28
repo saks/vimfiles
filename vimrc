@@ -402,6 +402,7 @@ highlight SpecialKey guifg=#4a4a59
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
 noremap <Leader>rt :!ctags --languages=ruby -R .<CR><CR>
+noremap <Leader>rs :!bundle exec rspec % --no-color<CR>
 
 "  ---------------------------------------------------------------------------
 "  Misc

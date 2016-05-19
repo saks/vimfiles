@@ -189,6 +189,7 @@ if has("autocmd")
 
     " Customisations based on house-style (arbitrary)
     au FileType html,css,ruby,javascript setlocal ts=2 sts=2 sw=2 expandtab
+    au FileType c setlocal ts=4 sts=4 sw=4 expandtab
 
     " au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
@@ -333,10 +334,13 @@ let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 " sudo pip install https://github.com/Lokaltog/powerline/tarball/develop
 
 " Airline settings
-let g:airline_powerline_fonts=1
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-let g:airline_theme='dark'
+let g:airline_powerline_fonts = 1
+let g:airline_detect_modified = 1
+let g:airline_detect_paste = 1
+let g:airline_theme = 'dark'
+" let g:airline#extensions#whitespace#enabled = 1
+" let g:airline_extensions = []
+let g:airline_extensions = ['branch', 'whitespace']
 
 " Easy commenting
 nnoremap <M-/> :TComment<CR>
@@ -344,19 +348,19 @@ vnoremap <M-/> :TComment<CR>
 
 " unite
 " Автоматический insert mode
-let g:unite_enable_start_insert = 1
+" let g:unite_enable_start_insert = 1
 
 " Отображаем Unite в нижней части экрана
-let g:unite_split_rule = "botright"
+" let g:unite_split_rule = "botright"
 
 " Отключаем замену статус строки
-let g:unite_force_overwrite_statusline = 0
+" let g:unite_force_overwrite_statusline = 0
 
 " Размер окна Unite
-let g:unite_winheight = 10
+" let g:unite_winheight = 10
 
 " Красивые стрелочки
-let g:unite_candidate_icon="▷"
+" let g:unite_candidate_icon="▷"
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -365,6 +369,18 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Turn off documentation in python_mode
+let g:pymode_doc = 0
+
+let g:pymode_options_max_line_length = 99
+
+let g:pymode_rope = 0
+
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+
+let g:pymode_folding = 0
 
 "  ---------------------------------------------------------------------------
 "  GUI
@@ -380,7 +396,8 @@ if has("gui_running")
   set mousehide  " Hide mouse after chars typed
   set mouse=a  " Mouse in all modes
   " set guifont=Monaco 10
-  set guifont=Monaco\ For\ Powerline\ 13
+  " set guifont=Monaco\ For\ Powerline\ 13
+  set guifont=Hack\ 13
   set linespace=1
 
   " EXTERNAL COPY / PASTE

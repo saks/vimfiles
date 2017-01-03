@@ -23,6 +23,10 @@ syntax enable
 " Tabboo (https://github.com/gcmt/taboo.vim#basic-options)
 let g:taboo_tab_format = "[ %f %N ]%m"
 
+" TOhtml setup:
+let g:html_use_css = 0
+let html_number_lines = 1
+
 "  ---------------------------------------------------------------------------
 "  UI
 "  ---------------------------------------------------------------------------
@@ -52,7 +56,7 @@ set backspace=indent,eol,start
 set number
 set numberwidth=5
 set undofile
-set timeoutlen=250  " Time to wait after ESC (default causes an annoying delay)
+set timeoutlen=1000  " Time to wait after ESC (default causes an annoying delay)
 
 "  ---------------------------------------------------------------------------
 "  Backups
@@ -190,6 +194,11 @@ if has("autocmd")
     " Customisations based on house-style (arbitrary)
     au FileType html,css,ruby,javascript setlocal ts=2 sts=2 sw=2 expandtab
     au FileType c setlocal ts=4 sts=4 sw=4 expandtab
+    au FileType lua setlocal tw=79 cc=80
+    au FileType python setlocal tw=79 cc=80
+
+    " Go
+    au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
     " au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
@@ -338,9 +347,14 @@ let g:airline_powerline_fonts = 1
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
 let g:airline_theme = 'dark'
-" let g:airline#extensions#whitespace#enabled = 1
-" let g:airline_extensions = []
-let g:airline_extensions = ['branch', 'whitespace']
+let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline_extensions = ['branch', 'whitespace', 'syntastic', 'tabline']
+
 
 " Easy commenting
 nnoremap <M-/> :TComment<CR>
@@ -382,9 +396,16 @@ let g:pymode_rope_complete_on_dot = 0
 
 let g:pymode_folding = 0
 
+
+let g:syntastic_check_on_open = 1
+let g:syntastic_lua_checkers = ["luacheck"]
+let g:syntastic_lua_luacheck_args = ""
+
 "  ---------------------------------------------------------------------------
 "  GUI
 "  ---------------------------------------------------------------------------
+vmap <LeftRelease> "*ygv
+
 if has("gui_running")
   set guioptions-=T " no toolbar set guioptions-=m " no menus
   set guioptions-=r " no scrollbar on the right
@@ -419,7 +440,7 @@ highlight SpecialKey guifg=#4a4a59
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
 noremap <Leader>rt :!ctags --languages=ruby -R .<CR><CR>
-noremap <Leader>rs :!bundle exec rspec % --no-color<CR>
+noremap <Leader>rs :!bundle exec rspec % --no-color -fp<CR>
 
 "  ---------------------------------------------------------------------------
 "  Misc

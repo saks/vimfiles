@@ -11,6 +11,17 @@ set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 
+" Bundle "Floobits/floobits-vim"
+" Bundle "Keithbsmiley/rspec.vim"
+" Bundle "Shougo/unite.vim"
+" Bundle "Shougo/vimproc.vim"
+" Bundle "Valloric/YouCompleteMe"
+" Bundle "chrismetcalf/vim-yankring.git"
+" Bundle "derekwyatt/vim-scala"
+" Bundle "digitaltoad/vim-jade"
+" Bundle "evanmiller/nginx-vim-syntax"
+" Bundle "fatih/vim-go"
+" Bundle "gcmt/taboo.vim"
 " Bundle "git://git.wincent.com/command-t.git"
 " Bundle "git://github.com/Bogdanp/rbrepl.vim.git"
 " Bundle "git://github.com/Lokaltog/powerline.git"
@@ -37,46 +48,42 @@ call vundle#rc()
 " Bundle "git://repo.or.cz/vcscommand"
 " Bundle "git@github.com:slim-template/vim-slim.git"
 " Bundle "git@github.com:terryma/vim-multiple-cursors.git"
+" Bundle "gmarik/snipmate.vim.git"
 " Bundle "https://github.com/ervandew/supertab"
 " Bundle "jQuery"
-" Bundle "Floobits/floobits-vim"
-" Bundle "Keithbsmiley/rspec.vim"
-" Bundle "Shougo/unite.vim"
-" Bundle "Shougo/vimproc.vim"
-" Bundle "Valloric/YouCompleteMe"
-" Bundle "derekwyatt/vim-scala"
-" Bundle "digitaltoad/vim-jade"
-" Bundle "gcmt/taboo.vim"
-" Bundle "gmarik/snipmate.vim.git"
+" Bundle "kchmck/vim-coffee-script.git"
 " Bundle "krisleech/snipmate-snippets.git"
 " Bundle "mhinz/vim-startify"
+" Bundle "mustache/vim-mustache-handlebars"
 " Bundle "ngmy/vim-rubocop"
+" Bundle "racer-rust/vim-racer"
+" Bundle "rust-lang/rust.vim"
 " Bundle "szw/vim-ctrlspace"
 " Bundle "tpope/vim-dispatch.git"
 
+Bundle "Glench/Vim-Jinja2-Syntax"
+Bundle "SirVer/ultisnips"
+Bundle "bling/vim-airline"
+Bundle "ekalinin/Dockerfile.vim"
+Bundle "nginx/nginx", {"rtp": "contrib/vim/"}
+Bundle "gmarik/vundle"
+Bundle "godlygeek/tabular.git"
+Bundle "klen/python-mode"
+Bundle "kylef/apiblueprint.vim"
 Bundle "leafo/moonscript-vim"
-Bundle 'Glench/Vim-Jinja2-Syntax'
-Bundle 'SirVer/ultisnips'
-Bundle 'bling/vim-airline'
-Bundle 'chrismetcalf/vim-yankring.git'
-Bundle 'ekalinin/Dockerfile.vim'
-Bundle 'evanmiller/nginx-vim-syntax'
-Bundle 'gmarik/vundle'
-Bundle 'godlygeek/tabular.git'
-Bundle 'kchmck/vim-coffee-script.git'
-Bundle 'klen/python-mode'
-Bundle 'kylef/apiblueprint.vim'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'saks/Specky.git'
-Bundle 'saks/gpicker.vim.git'
-Bundle 'saks/vim-snippets'
-Bundle 'tomtom/quickfixsigns_vim.git'
-Bundle 'tomtom/tcomment_vim.git'
-Bundle 'tpope/vim-endwise.git'
-Bundle 'tpope/vim-fugitive.git'
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'tpope/vim-unimpaired.git'
+Bundle "saks/Specky.git"
+Bundle "saks/gpicker.vim.git"
+Bundle "saks/vim-snippets"
+Bundle "tomtom/quickfixsigns_vim.git"
+Bundle "tomtom/tcomment_vim.git"
+Bundle "tpope/vim-endwise.git"
+Bundle "tpope/vim-fugitive.git"
+Bundle "tpope/vim-rails.git"
+Bundle "tpope/vim-repeat.git"
+Bundle "tpope/vim-surround.git"
+Bundle "tpope/vim-unimpaired.git"
+Bundle "AndrewRadev/splitjoin.vim"
+Bundle "scrooloose/syntastic.git"
 
 filetype plugin indent on     " and turn it back on!
 

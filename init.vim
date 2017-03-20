@@ -1,0 +1,1 @@
+/home/saksmlz/.vim/vimrc

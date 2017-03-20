@@ -1,0 +1,61 @@
+snippet l "local <name>"
+local ${1:name}
+endsnippet
+
+snippet pry "lua repl"
+require('resty.repl').start()
+endsnippet
+
+snippet p "print(require'inspect'())"
+print(require'inspect'(${1:self}))
+endsnippet
+
+snippet if "if <condition> then ... end"
+if ${1:condition} then
+	${2:-- TODO}
+end
+endsnippet
+
+snippet ife "if <condition> then ... else ... end"
+if ${1:condition} then
+	${2:-- TODO}
+else
+	${3:-- TODO}
+end
+endsnippet
+
+snippet fun "function <name>(args) ... end"
+function ${1:name}(${2:self})
+	${3:-- TODO}
+end
+endsnippet
+
+snippet it "it <name> function() ... end"
+it('${1:should work}', function()
+	${2:-- TODO}
+end)
+endsnippet
+
+snippet describe "describe <name> fucntion ... end"
+describe('${1:my lib}', function()
+	${2:-- TODO}
+end)
+endsnippet
+
+snippet context "context <name> fucntion ... end"
+context('${1:my lib}', function()
+	${2:-- TODO}
+end)
+endsnippet
+
+snippet be "before each function ... end"
+before_each(function()
+	${1:-- TODO}
+end)
+endsnippet
+
+snippet ae "after each function ... end"
+after_each(function()
+	${1:-- TODO}
+end)
+endsnippet

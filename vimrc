@@ -41,6 +41,10 @@ set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
+set splitright
+
+" yank to system clipboard
+set clipboard+=unnamedplus
 
 " Show $ at end of line and trailing space as ~
 set lcs=tab:▸\ ,eol:¬,trail:.,extends:>,precedes:<
@@ -168,6 +172,7 @@ if has("autocmd")
   augroup saksmlz_autocommands
     autocmd!
 
+    " autocmd FileType lua let b:syntastic_lua_luacheck_args = '--filename ' . expand('<afile>:p', 1)
     " Enable file type detection
     filetype on
 
@@ -217,6 +222,12 @@ if has("autocmd")
 
     " Treat .thor files as Ruby
     " au BufNewFile,BufRead *.thor setfiletype ruby
+
+    " Rust
+    au FileType rust nmap gd <Plug>(rust-def)
+    au FileType rust nmap gs <Plug>(rust-def-split)
+    au FileType rust nmap gx <Plug>(rust-def-vertical)
+    au FileType rust nmap <leader>gd <Plug>(rust-doc)
   augroup END
 
 endif
@@ -242,7 +253,7 @@ inoremap <esc> <nop>
 vnoremap <esc> <nop>
 
 " open tag definition (ctags) in new tab instead of new buffer:
-nnoremap <C-\> :SmartOpenTag<CR>
+" nnoremap <C-\> :SmartOpenTag<CR>
 
 " CTRL+S saves the buffer
 nnoremap <C-s> :w<CR>
@@ -293,21 +304,25 @@ vmap <M-Down> ]egv
 " map <M-9> :b9<CR>
 
 " Switch between tabs
-noremap <M-1> 1gt
-noremap <M-2> 2gt
-noremap <M-3> 3gt
-noremap <M-4> 4gt
-noremap <M-5> 5gt
-noremap <M-6> 6gt
-noremap <M-7> 7gt
-noremap <M-8> 8gt
-noremap <M-9> 9gt
+" noremap <M-1> 1gt
+" noremap <M-2> 2gt
+" noremap <M-3> 3gt
+" noremap <M-4> 4gt
+" noremap <M-5> 5gt
+" noremap <M-6> 6gt
+" noremap <M-7> 7gt
+" noremap <M-8> 8gt
+" noremap <M-9> 9gt
 
 " Next/Previous tab
-" map <M-.> :bn<CR>
-" map <M-,> :bp<CR>
-noremap <M-.> :tabnext<CR>
-noremap <M-,> :tabprevious<CR>
+" noremap <M-.> :tabnext<CR>
+" noremap <M-,> :tabprevious<CR>
+
+" Next/Previous buffer
+" noremap <M-.> :bn<CR>
+" noremap <M-,> :bp<CR>
+" noremap <M-.> <Plug>AirlineSelectNextTab
+" noremap <M-,> <Plug>AirlineSelectPrevTab
 
 
 
@@ -331,7 +346,7 @@ noremap <C-space> :nohl <cr>
 "  ---------------------------------------------------------------------------
 
 " GPicker settings
-let g:gpicker_open_file_in_tabs = 1
+" let g:gpicker_open_file_in_tabs = 1
 nnoremap <M-o> :GPickFile<CR>
 vnoremap <M-o> :GPickFile<CR>
 
@@ -347,14 +362,29 @@ let g:airline_powerline_fonts = 1
 let g:airline_detect_modified = 1
 let g:airline_detect_paste = 1
 let g:airline_theme = 'dark'
-let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <M-1> <Plug>AirlineSelectTab1
+nmap <M-2> <Plug>AirlineSelectTab2
+nmap <M-3> <Plug>AirlineSelectTab3
+nmap <M-4> <Plug>AirlineSelectTab4
+nmap <M-5> <Plug>AirlineSelectTab5
+nmap <M-6> <Plug>AirlineSelectTab6
+nmap <M-7> <Plug>AirlineSelectTab7
+nmap <M-8> <Plug>AirlineSelectTab8
+nmap <M-9> <Plug>AirlineSelectTab9
+nmap <M-,> <Plug>AirlineSelectPrevTab
+nmap <M-.> <Plug>AirlineSelectNextTab
 let g:airline_extensions = ['branch', 'whitespace', 'syntastic', 'tabline']
 
+
+" Vim-Racer settings
+" let g:racer_cmd = "/home/saksmlz/.cargo/bin/racer"
+" let $RUST_SRC_PATH="/home/saksmlz/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/"
+" let g:racer_experimental_completer = 1
+
+" Rust:
+let g:rustfmt_autosave = 1
 
 " Easy commenting
 nnoremap <M-/> :TComment<CR>
@@ -396,7 +426,7 @@ let g:pymode_rope_complete_on_dot = 0
 
 let g:pymode_folding = 0
 
-
+" Syntastic settings:
 let g:syntastic_check_on_open = 1
 let g:syntastic_lua_checkers = ["luacheck"]
 let g:syntastic_lua_luacheck_args = ""
